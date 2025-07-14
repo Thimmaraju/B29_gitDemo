@@ -32,7 +32,7 @@ exports.addEmployeePage = class addEmployeePage {
 
     async createEmployee(firstname, lastname) {
 
-        await this.firstnameInput.fill(firstname)
+        await this.firstnameInput.fill(firstname )
         await this.lastnameInput.fill(lastname)
 
         //upload file 

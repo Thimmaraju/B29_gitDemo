@@ -1,4 +1,9 @@
 class dashBoardpage{
 
+    constructor(page){
+
+        
+    }
+
     
 }
