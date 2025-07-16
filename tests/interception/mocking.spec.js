@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test');
 const { URL } = require('url'); // Used for modifying query parameters
 
-test("Example for Mocking", async ({ page }) => {
+test.only("Example for Mocking", async ({ page }) => {
   // Intercept and modify the API request query parameters
   await page.route(
     "**/api/v2/pim/employees*", // Matches any request to employees API

@@ -3,23 +3,19 @@ import { test, expect } from '@playwright/test';
 import data from "../../../testData/addemployee.json"
 
 const creds = ["Admin", "admin123"]
-test('Verify Add Employee',{tag: ["@smoke", "@raju"]}, async ({ page }) => {
+test('Verify Add Employee',{tag: ["@smoke","@rgression"]}, async ({ page }) => {
   await page.goto('/web/index.php/auth/login');
-  await page.getByRole('textbox', { name: 'Username' }).click();
-  await page.getByRole('textbox', { name: 'Username' }).fill(creds[0]);
-  await page.getByRole('textbox', { name: 'Password' }).click();
-  await page.getByRole('textbox', { name: 'Password' }).fill(creds[1]);
+  await page.getByRole('textbox', { name: 'Username' }).fill("Admin");
+  await page.getByRole('textbox', { name: 'Password' }).fill("admin123");
   await page.getByRole('button', { name: 'Login' }).click();
   //await expect(page.locator('#app')).toContainText('Time at Work');
   await page.getByRole('link', { name: 'PIM' }).click();
   await page.getByRole('link', { name: 'Add Employee' }).click();
-  await page.getByRole('textbox', { name: 'First Name' }).click();
-  await page.getByRole('textbox', { name: 'First Name' }).fill(data.firstname);
-  await page.getByRole('textbox', { name: 'Last Name' }).click();
-  await page.getByRole('textbox', { name: 'Last Name' }).fill(data.lastname);
+  await page.getByRole('textbox', { name: 'First Name' }).fill("Lingaraju");
+  await page.getByRole('textbox', { name: 'Last Name' }).fill("R");
   await page.locator('.oxd-file-input').setInputFiles("./testData/files/rtmsample.png")
   await page.getByRole('button', { name: 'Save' }).click();
-  await expect(page.getByRole('heading', { name: 'Personal Details' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Personal Details Raju' })).toBeVisible();
 });
 
 
